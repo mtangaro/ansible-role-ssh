@@ -3,7 +3,7 @@
   user:
     name: "{{ item.os_user_name }}"
     shell: '/bin/bash'
-    uid: "{{ item.GUID | default( omit, true) }}"
+    uid: "{{ item.os_user_guid | default( omit, true) }}"
     state: present
     groups: adm,wheel,systemd-journal
   with_items: "{{ os_users }}"
@@ -13,7 +13,7 @@
   user:
     name: "{{ item.os_user_name }}"
     shell: '/bin/bash'
-    uid: '{{ item. | default( omit, true ) }}'
+    uid: '{{ item.os_user_guid | default( omit, true ) }}'
     state: present
   with_items: "{{ os_users }}"
   when: ansible_os_family == "Debian"
