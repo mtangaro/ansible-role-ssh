@@ -1,5 +1,2 @@
 ---
-ssh_user:
-  name: ''
-  GUID: ''
-  ssh_pub_key: ''
+os_users: []

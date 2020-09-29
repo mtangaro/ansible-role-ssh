@@ -1,3 +1,3 @@
 ---
-- include: ssh_config.yml
-  when: ssh_user.name != ''
+- include: create_users.yml
+  when: os_users|length > 0

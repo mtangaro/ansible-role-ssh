@@ -1,29 +1,29 @@
 --- 
 - name: '[EL] create users on the server'
   user:
-    name: "{{ item.name }}"
+    name: "{{ item.os_user_name }}"
     shell: '/bin/bash'
     uid: "{{ item.GUID | default( omit, true) }}"
     state: present
     groups: adm,wheel,systemd-journal
-  with_items: "{{ ssh_user }}"
+  with_items: "{{ os_users }}"
   when: ansible_os_family == "RedHat" 
 
 - name: '[Ubuntu] Create users on the server'
   user:
-    name: "{{ item.name }}"
+    name: "{{ item.os_user_name }}"
     shell: '/bin/bash'
-    uid: '{{ item.GUID | default( omit, true ) }}'
+    uid: '{{ item. | default( omit, true ) }}'
     state: present
-  with_items: "{{ ssh_user }}"
+  with_items: "{{ os_users }}"
   when: ansible_os_family == "Debian"
 
 - name: Set authorized key
   authorized_key:
-    user: "{{ item.name }}"
+    user: "{{ item.os_user_name }}"
     state: present   
-    key: '{{ item.ssh_key }}'
-  with_items: "{{ ssh_user }}"
+    key: '{{ item.os_user_ssh_pub_key }}'
+  with_items: "{{ os_users }}"
   when: 
     -  item.ssh_key is defined 
     -  item.ssh_key != '' 
