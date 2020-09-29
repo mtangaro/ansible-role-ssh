@@ -2,4 +2,4 @@
 ssh_user:
   name: ''
   GUID: ''
-  ssh_key: ''
+  ssh_pub_key: ''
