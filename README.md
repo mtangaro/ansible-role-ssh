@@ -11,7 +11,7 @@ Role Variables
 --------------
 ``username``: set username
 ``GUID``: set user GUID, if you do not want to set a specific GUID for the user omit it, the role will assign it randomly > 1000
-``ssh_key``: public key for the user
+``ssh_key``: public key of the user
 ``present``: bool, if you want to set the key
 
 Dependencies
