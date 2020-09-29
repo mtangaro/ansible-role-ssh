@@ -2,7 +2,7 @@ galaxy_info:
   author: Pietro Mandreoli
   description: Configure SSH connection
   company: Università degli studi di Milano
-  role_name: galaxy
+  role_name: ssh
   license: GPL-3
   min_ansible_version: 2.9
   galaxy_tags: []
